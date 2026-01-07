@@ -352,7 +352,7 @@ rclpy.spin(node)
 
 ## License
 
-The RUITONG SDK libraries in `lib/` are proprietary to ARMD (Aorui Medical Technology, Beijing) and subject to their licensing terms.
+The RUITONG SDK libraries in `lib/` are proprietary to ARMD (Ariemedi Medical Science, Beijing) and subject to their licensing terms.
 
 ---
 
@@ -371,9 +371,9 @@ If you use this package in your research, please cite:
 ```bibtex
 @software{ruitong_ros2,
   title = {RUITONG ROS2 Tracking Package},
-  author = {Your Name},
+  author = {Yameng Zhang},
   year = {2026},
-  url = {https://github.com/yourusername/ruitong_demo}
+  url = {https://github.com/YamengZZZ/RUITONG-ROS2-Tracking-Package}
 }
 ```
 
@@ -381,5 +381,5 @@ If you use this package in your research, please cite:
 
 ## Acknowledgments
 
-- ARMD (Aorui Medical Technology, Beijing) for the RUITONG tracking system and SDK
+- ARMD (Ariemedi Medical Science, Beijing) for the RUITONG tracking system and SDK
 - ROS2 community for the excellent robotics middleware
