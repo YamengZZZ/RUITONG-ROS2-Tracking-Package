@@ -60,8 +60,8 @@ install(TARGETS
 )
 
 # Install tool directory to share directory
-install(DIRECTORY tool/
-  DESTINATION share/${PROJECT_NAME}/tool
+install(DIRECTORY mytool/
+  DESTINATION share/${PROJECT_NAME}/mytool
 )
 
 ament_package()

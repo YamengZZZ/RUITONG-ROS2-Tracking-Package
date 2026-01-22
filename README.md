@@ -154,7 +154,7 @@ ros2 topic echo /tracking_data
 
 # Check publishing frequency
 ros2 topic hz /tracking_data
-# Expected: average rate: 120.000
+# Expected: average rate: 60.000
 ```
 
 ---

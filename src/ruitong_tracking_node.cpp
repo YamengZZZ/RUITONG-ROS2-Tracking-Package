@@ -18,7 +18,7 @@ public:
 	{
 		// Declare parameters
 		this->declare_parameter("hostname", "RT-MAX000752.local");
-		this->declare_parameter("tool_path", "");
+		this->declare_parameter("tool_path", "/home/yameng/ros2_ws/src/RUITONG-Demo/mytool");
 		
 		// Get parameters
 		hostname_ = this->get_parameter("hostname").as_string();
@@ -59,9 +59,29 @@ public:
 				return;
 			}
 		}
-		
-		// Generate AROM file
-		generateAROMfile();
+
+		// If there are no existing .arom files in tool_path_, generate one.
+		bool has_arom_pre = false;
+		if (fs::exists(tool_path_) && fs::is_directory(tool_path_))
+		{
+			for (const auto& entry : fs::directory_iterator(tool_path_))
+			{
+				if (entry.path().extension() == ".arom")
+				{
+					has_arom_pre = true;
+					break;
+				}
+			}
+		}
+		if (!has_arom_pre)
+		{
+			RCLCPP_INFO(this->get_logger(), "No .arom files in %s — generating default AROM", tool_path_.c_str());
+			generateAROMfile();
+		}
+		else
+		{
+			RCLCPP_INFO(this->get_logger(), "Found existing .arom files in %s — skipping generation", tool_path_.c_str());
+		}
 		
 		// Connect to device
 		if (connect(hostname_) != 0)
