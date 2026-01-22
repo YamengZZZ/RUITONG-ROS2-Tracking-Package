@@ -143,9 +143,9 @@ private:
 		MarkerPosition a, b, c, d;
 		
 		a.P[0] = 0.0; a.P[1] = 0.0; a.P[2] = 0.0; a.P[3] = 1.0;
-		b.P[0] = 0.0; b.P[1] = -50.0; b.P[2] = 0.0; b.P[3] = 1.0;
-		c.P[0] = -25.0; c.P[1] = -100.0; c.P[2] = 0.0; c.P[3] = 1.0;
-		d.P[0] = 25.0; d.P[1] = -135.0; d.P[2] = 0.0; d.P[3] = 1.0;
+		b.P[0] = 50.049691; b.P[1] = 0.0; b.P[2] = 0.0; b.P[3] = 1.0;
+		c.P[0] = 100.066939; c.P[1] = 25.027337; c.P[2] = 0.0; c.P[3] = 1.0;
+		d.P[0] = 135.0109; d.P[1] = -25.0555; d.P[2] = -0.245951; d.P[3] = 1.0;
 		
 		markers.push_back(a);
 		markers.push_back(b);
@@ -153,15 +153,16 @@ private:
 		markers.push_back(d);
 		
 		ToolCalibrationData newTool;
-		newTool.name = "Tool";
+		// name must be alphanumeric (letters and numbers) to satisfy generateAROM checks
+		newTool.name = "mytool";
 		newTool.type = 0;
 		newTool.planeNum = 1;
 		newTool.minNumMarker = 3;
 		newTool.calbError = -1;
 		newTool.markers.push_back(markers);
-		newTool.pin[0] = -0.08;
-		newTool.pin[1] = 158.26;
-		newTool.pin[2] = -18.21;
+		newTool.pin[0] = 0.0;
+		newTool.pin[1] = 0.0;
+		newTool.pin[2] = 0.0;
 		
 		// Use tool_path_ with trailing slash
 		std::string arom_path = tool_path_;
