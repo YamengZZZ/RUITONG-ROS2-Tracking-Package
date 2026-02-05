@@ -49,9 +49,9 @@ set_target_properties(ruitong_tracking_node PROPERTIES
     INSTALL_RPATH ${LIB_DIR}
 )
 
-# Link the generated messages
-rosidl_target_interfaces(ruitong_tracking_node
-  ${PROJECT_NAME} "rosidl_typesupport_cpp")
+# Link the generated messages (avoid deprecated rosidl_target_interfaces)
+rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
+target_link_libraries(ruitong_tracking_node "${cpp_typesupport_target}")
 
 # Install
 install(TARGETS
